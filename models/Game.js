@@ -6,18 +6,10 @@ class Game extends Model {};
 Game.init(
     {
         id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.UUID,
             primaryKey: true,
-            autoIncrement: true,
-            allowNull: false
-        },
-        user_id: { 
-            type: DataTypes.INTEGER,
-            allowNull: true,
-            references: {
-                model: 'user',
-                key: 'id',
-            }
+            allowNull: false,
+            defaultValue: DataTypes.UUIDV4,
         },
         name: {
             type: DataTypes.STRING,
@@ -25,13 +17,21 @@ Game.init(
         },
         date_created: {
             type: DataTypes.DATE,
-            allowNull: false,
+            allowNull: true,
             defaultValue: DataTypes.NOW,
         },
         description: {
-            type: DataTypes.TEXT,
+            type: DataTypes.STRING,
             allowNull: true,
         },
+        winner_id: {
+            type: DataTypes.UUID,
+            allowNull: false,
+            references: {
+                model: 'user',
+                key: 'id',
+            }
+        }
     },
     {
         sequelize,

@@ -6,12 +6,13 @@ class Score extends Model {}
 Score.init(
     {
         id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.UUID,
             primaryKey: true,
-            autoIncrement: true
+            allowNull: false,
+            defaultValue: DataTypes.UUIDV4,
         },
         user_id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.UUID,
             allowNull: false,
             reference: {
                 model: 'user',
@@ -23,8 +24,16 @@ Score.init(
             allowNull: false,
             default: 0
         },
+        round_id: {
+            type: DataTypes.UUID,
+            allowNull: false,
+            reference: {
+                model: 'round',
+                key: 'id'
+            }
+        },
         game_id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.UUID,
             allowNull: false,
             reference: {
                 model: 'game',

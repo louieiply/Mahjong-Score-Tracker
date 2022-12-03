@@ -6,13 +6,13 @@ class Round extends Model {}
 Round.init(
     {
         id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.UUID,
             primaryKey: true,
-            autoIncrement: true,
             allowNull: false,
+            defaultValue: DataTypes.UUIDV4,
         },
         game_id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.UUID,
             allowNull: false,
             references: {
                 model: 'game',
@@ -25,7 +25,7 @@ Round.init(
             default: '',
         },
         winner_id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.UUID,
             allowNull: false,
             references: {
                 model: 'user',
