@@ -26,7 +26,7 @@ Game.init(
         },
         winner_id: {
             type: DataTypes.UUID,
-            allowNull: false,
+            allowNull: true,
             references: {
                 model: 'user',
                 key: 'id',
