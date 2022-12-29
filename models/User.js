@@ -35,7 +35,24 @@ User.init (
             validate: {
                 isEmail: true,
             }
+        },
+        winRate: {
+            type: DataTypes.FLOAT,
+            defaultValue: 0,
+        },
+        gamesWon: {
+            type: DataTypes.INTEGER,
+            defaultValue: 0,
+        },
+        gameLost: {
+            type: DataTypes.INTEGER,
+            defaultValue: 0,
+        },
+        totalGame: {
+            type: DataTypes.INTEGER,
+            defaultValue: 0,
         }
+
 
     },
     {

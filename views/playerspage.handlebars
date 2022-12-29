@@ -1,0 +1,24 @@
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Player Name</th>
+                <th>Player ID</th>
+                <th>Player GameCount</th>
+                <th>Player Won</th>
+                <th>Player Lost</th>
+            </tr>
+        </thead>
+        <tbody>
+    {{#each players as |player|}}
+            <tr>
+                <td>{{player.name}}</td>
+                <td>{{player.id}}</td>
+                <td>{{player.totalGame}}</td>
+                <td>{{player.gamesWon}}</td>
+                <td>{{player.gameLost}}</td>
+            </tr>
+    {{/each}}
+        </tbody>
+    </table>
+</div>
