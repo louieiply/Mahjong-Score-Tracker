@@ -48,7 +48,7 @@ const seedDatabase = async () => {
         individualHooks: true,
         returning: true
     });
-
+    console.log(gameparticipants);
 };
 
 seedDatabase();

@@ -1,11 +1,11 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class GameParticipant extends Model{};
+class SessionParticipant extends Model{};
 
-GameParticipant.init(
+SessionParticipant.init(
     {
-        id:{
+        id: {
             type: DataTypes.UUID,
             primaryKey: true,
             allowNull: false,
@@ -19,25 +19,23 @@ GameParticipant.init(
                 model: 'user',
                 key: 'id',
             }
-            
         },
-        game_id: {
+        session_id: {
             type: DataTypes.UUID,
             allowNull: false,
             references:{
-                model:'game',
-                key: 'id',
+                model:'session',
+                key:'id',
             }
-        }
-
+        },
     },
     {
         sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true, 
-        modelName: 'gameparticipant',
+        modelName: 'sessionparticipant',
     }
 );
 
-module.exports = GameParticipant;
+module.exports = SessionParticipant;

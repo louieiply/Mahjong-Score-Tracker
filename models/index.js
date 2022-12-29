@@ -3,6 +3,8 @@ const User = require('./User');
 const Score = require('./Score');
 const Round = require('./Round');
 const GameParticipant = require('./GameParticipant');
+const Session = require('./Session');
+const SessionParticipant = require('./SessionParticipant');
 
 //Game in Other Tables
 Game.hasMany(Round, {
@@ -74,6 +76,23 @@ User.hasMany(GameParticipant, {
 
 GameParticipant.belongsTo(User, {
     foreignKey: 'participant_id'
-})
+});
 
-module.exports = { Game, Round, User, Score, GameParticipant };
+User.hasMany(SessionParticipant, {
+    foreignKey: 'participant_id'
+});
+
+SessionParticipant.belongsTo(User, {
+    foreignKey: 'participant_id'
+});
+
+// Session in Other Tables
+Session.hasMany(SessionParticipant, {
+    foreignKey:'session_id'
+});
+
+SessionParticipant.belongsTo(Session, {
+    foreignKey:'session_id'
+});
+
+module.exports = { Game, Round, User, Score, GameParticipant, Session, SessionParticipant};
