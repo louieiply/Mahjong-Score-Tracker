@@ -1,0 +1,20 @@
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Game Name</th>
+                <th>Game ID</th>
+                <th>Game description</th>
+            </tr>
+        </thead>
+        <tbody>
+    {{#each games as |game|}}
+            <tr>
+                <td>{{game.name}}</td>
+                <td>{{game.id}}</td>
+                <td>{{game.description}}</td>
+            </tr>
+    {{/each}}
+        </tbody>
+    </table>
+</div>

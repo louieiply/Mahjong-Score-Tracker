@@ -3,6 +3,7 @@ const sequelize = require('../config/connection');
 
 class GameParticipant extends Model{};
 
+
 GameParticipant.init(
     {
         id:{
@@ -29,17 +30,11 @@ GameParticipant.init(
                 key: 'id',
             }
         },
-        totalScore: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            defaultValue: 0
-        },
         is_finished: {
             type: DataTypes.BOOLEAN,
             allowNull: false,
             defaultValue: false
-
-        },
+        }
 
     },
     {
