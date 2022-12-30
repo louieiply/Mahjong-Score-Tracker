@@ -9,6 +9,7 @@ Round.init(
             type: DataTypes.UUID,
             primaryKey: true,
             allowNull: false,
+            unique: true,
             defaultValue: DataTypes.UUIDV4,
         },
         game_id: {
@@ -28,7 +29,7 @@ Round.init(
             type: DataTypes.UUID,
             allowNull: false,
             references: {
-                model: 'user',
+                model: 'gameparticipant',
                 key: 'id',
             },
         }

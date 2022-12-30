@@ -10,7 +10,8 @@ const gameparticipantsArray = new Array();
 const tempArray = new Array();
 
 const seedDatabase = async () => {
-    await sequelize.sync({ force: true});
+    try{
+        await sequelize.sync({ force: true});
 
     // Create new Users Records
     const users = await User.bulkCreate(userData, {
@@ -49,6 +50,11 @@ const seedDatabase = async () => {
         returning: true
     });
     console.log(gameparticipants);
+
+    }
+    catch(err){
+        console.log(err);
+    }
 };
 
 seedDatabase();

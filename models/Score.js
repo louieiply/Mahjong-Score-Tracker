@@ -9,13 +9,14 @@ Score.init(
             type: DataTypes.UUID,
             primaryKey: true,
             allowNull: false,
+            unique: true,
             defaultValue: DataTypes.UUIDV4,
         },
         user_id: {
             type: DataTypes.UUID,
             allowNull: false,
             reference: {
-                model: 'user',
+                model: 'gameparticipant',
                 key: 'id'
             }
         },

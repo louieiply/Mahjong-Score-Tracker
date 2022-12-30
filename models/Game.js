@@ -1,4 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
+const moment = require('moment');
 const sequelize = require('../config/connection');
 
 class Game extends Model {};
@@ -9,11 +10,13 @@ Game.init(
             type: DataTypes.UUID,
             primaryKey: true,
             allowNull: false,
+            unique: true,
             defaultValue: DataTypes.UUIDV4,
         },
         name: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            defaultValue: "麻將遊戲 - "+ moment().format('LLLL').toString(),
         },
         date_created: {
             type: DataTypes.DATE,
@@ -28,7 +31,7 @@ Game.init(
             type: DataTypes.UUID,
             allowNull: true,
             references: {
-                model: 'user',
+                model: 'gameparticipant',
                 key: 'id',
                 
             }
