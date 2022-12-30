@@ -35,6 +35,11 @@ Game.init(
                 key: 'id',
                 
             }
+        },
+        is_finished: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false
         }
     },
     {

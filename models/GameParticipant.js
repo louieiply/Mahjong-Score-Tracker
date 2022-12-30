@@ -28,7 +28,18 @@ GameParticipant.init(
                 model:'game',
                 key: 'id',
             }
-        }
+        },
+        totalScore: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            defaultValue: 0
+        },
+        is_finished: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false
+
+        },
 
     },
     {

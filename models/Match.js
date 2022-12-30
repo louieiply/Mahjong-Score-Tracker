@@ -13,7 +13,15 @@ Match.init(
             allowNull: false,
             unique: true,
             defaultValue: DataTypes.UUIDV4,
-        }
+        },
+        game_id: {
+            type: DataTypes.UUID,
+            allowNull: false,
+            references: {
+                model: 'game',
+                key: 'id',
+            },
+        },
 
     },
     {

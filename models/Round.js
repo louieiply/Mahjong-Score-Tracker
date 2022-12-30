@@ -20,18 +20,18 @@ Round.init(
                 key: 'id',
             },
         },
+        match_id: {
+            type: DataTypes.UUID,
+            allowNull: false,
+            references: {
+                model: 'match',
+                key: 'id',
+            },
+        },
         note: {
             type: DataTypes.STRING,
             allowNull: true,
             default: '',
-        },
-        winner_id: {
-            type: DataTypes.UUID,
-            allowNull: false,
-            references: {
-                model: 'gameparticipant',
-                key: 'id',
-            },
         }
     },
     {

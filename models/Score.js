@@ -25,11 +25,11 @@ Score.init(
             allowNull: false,
             default: 0
         },
-        round_id: {
+        hand_id: {
             type: DataTypes.UUID,
             allowNull: false,
             reference: {
-                model: 'round',
+                model: 'hand',
                 key: 'id'
             }
         },
