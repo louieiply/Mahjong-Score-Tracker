@@ -58,6 +58,15 @@ router.get('/players', async (req, res) => {
   
 })
 
+router.get('/newGame', async (req, res) => {
+    try{
+      res.render('newGame');
+    }
+    catch(err){
+      res.status(500).json(err);
+    }
+});
+
 
 
 module.exports = router;
